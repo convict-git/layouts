@@ -22,7 +22,9 @@
 }
 
 i,
-a, p, span {
+a,
+p,
+span {
   text-decoration: none;
   height: auto;
 }
@@ -47,7 +49,7 @@ div.top-bar * {
 .nav-bar {
   display: flex;
   min-width: 600px;
-  margin: 0px 100px;
+  margin: 0px 250px;
   justify-content: space-between;
   align-items: center;
 }
@@ -100,10 +102,6 @@ div.top-bar * {
 .hidden-top-nav {
   /* display: hidden; */ /* better way is to translate to add transition*/
   transform: translate3d(0px, -65px, 0);
-}
-
-.body {
-  f
 }
 
 .middle-slidebar {
@@ -249,8 +247,9 @@ due to inline-block */
 .show-rest {
   background-color: var(--dark-color);
   height: auto;
-  margin: 0px 100px;
+  margin: 0px 250px;
   display: grid;
+  min-width: fit-content;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   padding: 10px;
   justify-items: center;
@@ -348,7 +347,8 @@ due to inline-block */
   display: flex;
 }
 
-.add-item, .remove-item {
+.add-item,
+.remove-item {
   border-radius: 30px;
   border: 2px solid var(--light-color);
 }
