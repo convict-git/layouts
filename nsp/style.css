@@ -2,12 +2,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 :root {
+  --super-light-color: rgb(243, 244, 245);
   --light-color: rgb(217, 232, 241);
   --medium-color: rgb(187, 209, 224);
   --dark-color: rgb(15, 32, 65);
 }
 
 * {
+  background-color: var(--super-light-color);
+  z-index: inherit;
   transition: all 0.2s ease;
   height: 100%;
   box-sizing: border-box;
@@ -19,7 +22,7 @@
 }
 
 i,
-a {
+a, p, span {
   text-decoration: none;
   height: auto;
 }
@@ -29,7 +32,7 @@ div.top-bar * {
   background-color: var(--light-color);
 }
 
-div.top-bar {
+.top-bar {
   overflow: hidden;
   position: fixed;
   z-index: 100;
@@ -81,6 +84,7 @@ div.top-bar {
 
 .filter-item-container,
 .list-item-container {
+  margin: 0px 5px;
   height: 30px;
   gap: 5px;
   width: auto;
@@ -96,6 +100,10 @@ div.top-bar {
 .hidden-top-nav {
   /* display: hidden; */ /* better way is to translate to add transition*/
   transform: translate3d(0px, -65px, 0);
+}
+
+.body {
+  f
 }
 
 .middle-slidebar {
@@ -115,9 +123,11 @@ div.top-bar {
 }
 
 .left-slide-but:active,
-.right-slide-but:active {
+.left-slide-but:active *,
+.right-slide-but:active,
+.right-slide-but:active * {
   background-color: var(--medium-color);
-  /* transform: scale(1.01); */
+  transform: scale(1.01);
 }
 
 .left-slide-but:hover,
@@ -143,7 +153,17 @@ div.top-bar {
   transform: translate(50%);
 }
 
+.container {
+  height: auto;
+}
+/* added this because I was getting weird white space selection 
+due to inline-block */
+.main-slider::selection {
+  text-decoration: none;
+}
+
 .main-slider {
+  background-color: var(--dark-color);
   overflow: hidden;
   width: 100%;
   white-space: nowrap;
@@ -198,13 +218,17 @@ div.top-bar {
   color: var(--light-color);
 }
 
-.filter-head-filter-item:hover {
-  box-shadow: 0 -8px 2px -6px black inset;
+.filter-item-container:hover {
+  box-shadow: 0 -4px 0px -1px black inset;
 }
 
 .dish-card,
 .inside-box {
   border-radius: 20px;
+}
+
+.dish-card {
+  position: relative;
 }
 
 .hidden {
@@ -216,6 +240,9 @@ div.top-bar {
 }
 
 .filter-case-head {
+  position: sticky;
+  top: 0px;
+  z-index: 1000;
   height: 75px;
 }
 
@@ -227,6 +254,7 @@ div.top-bar {
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   padding: 10px;
   justify-items: center;
+  z-index: 0;
 }
 
 .dish-card {
@@ -271,7 +299,56 @@ div.top-bar {
   font-size: 1.2em;
   height: auto;
 }
-.tag-line {
-  font-size: 1em;
-  font-family: "Sue Ellen Francisco", cursive;
+
+.image-pos,
+.content-pos {
+  background-color: inherit;
+}
+
+.content-pos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: row;
+  place-items: stretch;
+}
+.content-pos * {
+  background-color: inherit;
+}
+
+.food-name {
+  grid-column: 1/4;
+}
+
+.food-category {
+  grid-column: 1/4;
+}
+
+.rating-container {
+  transform: scale(0.8);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  gap: 5px;
+  padding: 5px;
+  margin: 5px;
+  background-color: var(--dark-color);
+  border-radius: 13px;
+}
+.rating-container * {
+  text-align: center;
+  color: var(--light-color);
+}
+
+.buttons {
+  bottom: 0px;
+  height: 30px;
+  position: absolute;
+  display: flex;
+}
+
+.add-item, .remove-item {
+  border-radius: 30px;
+  border: 2px solid var(--light-color);
 }

@@ -1,6 +1,27 @@
 var current_offset = 0;
 var shift = 232;
 
+const addRestItem = function (rating) {
+  let html_content = `<div class="image-pos"></div>
+  <div class="content-pos">
+     <div class="food-name"></div>
+     <div class="food-category"></div>
+     <div class="food-rating">
+        <div class="rating-container">
+           <i class="material-icons">star</i>
+           <span>${rating}</span>
+        </div>
+     </div>
+     <div class="food-prep-time"></div>
+     <div class="food-cost"></div>
+  </div>`;
+  let rest_dom = document.querySelector(".show-rest");
+  let new_item = document.createElement("div");
+  new_item.classList.add("dish-card");
+  new_item.innerHTML = html_content;
+  rest_dom.append(new_item);
+};
+
 const leftOffset = function (dom_obj) {
   return dom_obj.getBoundingClientRect().left;
 };
@@ -60,3 +81,7 @@ document.querySelector(".right-slide-but").addEventListener("click", () => {
     document.querySelector(".left-slide-but").classList.remove("hidden");
   }
 });
+
+for (let x = 1; x <= 15; x++) {
+  addRestItem(1 + Math.floor(Math.random() * 5));
+}
