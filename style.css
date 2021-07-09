@@ -1,15 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 :root {
-  --light-color: white;
-  --dark-color: rgb(24, 51, 102);
+  --light-color: rgb(217, 232, 241);
+  --medium-color: rgb(187, 209, 224);
+  --dark-color: rgb(15, 32, 65);
 }
 
 * {
-  /* background-color: rgb(83, 145, 204); */
+  transition: all 0.2s ease-in;
   height: 100%;
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
-  outline: 1px solid black;
+  font-family: "Montserrat", sans-serif;
+  color: var(--dark-color);
+  /* outline: 1px solid black; */
+}
+
+div.top-bar,
+div.top-bar * {
+  background-color: var(--light-color);
 }
 
 div.top-bar {
@@ -20,7 +29,6 @@ div.top-bar {
   right: 0px;
   width: 100%;
   height: 75px;
-  overflow: hidden;
 }
 
 .filter-head,
@@ -34,6 +42,9 @@ div.top-bar {
 
 .left-nav,
 .left-filter-head {
+  font-size: 1.4em;
+  font-family: sans-serif;
+  font-weight: 300;
   display: flex;
   width: auto;
   padding: 10px;
@@ -51,7 +62,7 @@ div.top-bar {
 
 .nav-list-item {
   display: flex;
-  align-items: center;
+  align-content: center;
 }
 
 .filter-item-container,
@@ -74,13 +85,13 @@ div.top-bar {
 /* everything above is for top-bar */
 
 .middle-slidebar {
-  overflow: hidden;
   margin-top: 75px;
   height: 400px;
   background-color: var(--dark-color);
 }
 
 .wrapper-slider {
+  overflow: visible;
   position: relative;
   display: flex;
   width: 900px;
@@ -88,11 +99,25 @@ div.top-bar {
   align-items: center;
   justify-content: center;
 }
+
+.left-slide-but:active,
+.right-slide-but:active {
+  background-color: var(--medium-color);
+}
+
+.left-slide-but:hover,
+.right-slide-but:hover {
+  box-shadow: 0px 0px 100px 50px var(--dark-color);
+  border: 2px solid var(--dark-color), 1px solid white;
+}
+
 .left-slide-but,
 .right-slide-but {
+  border-radius: 30px;
   position: absolute;
   height: 50px;
   width: 50px;
+  z-index: 1;
 }
 .left-slide-but {
   left: 0;
@@ -106,16 +131,53 @@ div.top-bar {
 .main-slider {
   overflow: hidden;
   height: 330px;
-  width: 80%;
+  width: 100%;
   white-space: nowrap;
   padding: 0px 10px;
+}
+
+.inside-box:nth-child(4n + 0) {
+  background-color: rgb(213, 220, 236);
+}
+.inside-box:nth-child(4n + 1) {
+  background-color: rgb(175, 182, 197);
+}
+.inside-box:nth-child(4n + 2) {
+  background-color: rgb(140, 153, 179);
+}
+.inside-box:nth-child(4n + 3) {
+  background-color: rgb(121, 133, 156);
 }
 
 .inside-box {
   display: inline-block;
   width: 210px;
   margin: 0px 10px;
-  /* background-color: rgb(24, 51, 102); */
+  transition: all 1s ease;
+  z-index: 10;
+  /* background-color: rgb(146, 166, 204); */
+}
+
+.dish-card:hover,
+.inside-box:hover {
+  -webkit-margin-top-collapse: discard;
+  transform: scale(1.1) translateZ(0);
+  transition: transform 10ms ease-in 10ms ease-out;
+  box-shadow: 0px 0px 50px 10px var(--light-color) inset;
+  filter: drop-shadow(0px 0px 100px);
+  border-radius: 10px;
+}
+.nav-list-item:hover {
+  border-radius: 5px;
+  filter: drop-shadow(0px 0px 50px);
+}
+.filter-head-filter-item:hover {
+  text-decoration: underline;
+}
+
+.dish-card,
+.inside-box {
+  border-radius: 20px;
 }
 
 .hidden {
@@ -127,11 +189,12 @@ div.top-bar {
 }
 
 .filter-case-head {
-  overflow: hidden;
   height: 75px;
 }
 
 .show-rest {
+  background-color: var(--dark-color);
+  height: auto;
   margin: 0px 100px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -152,7 +215,29 @@ div.top-bar {
   height: 200px;
   width: 100%;
 }
+
 .content-pos {
   width: 100%;
   height: 100px;
+}
+
+i.material-icons {
+  height: 30px;
+  margin: 2px;
+}
+a {
+  text-decoration: none;
+}
+
+.dish-card:nth-child(4n + 0) {
+  background-color: rgb(213, 220, 236);
+}
+.dish-card:nth-child(4n + 1) {
+  background-color: rgb(175, 182, 197);
+}
+.dish-card:nth-child(4n + 2) {
+  background-color: rgb(140, 153, 179);
+}
+.dish-card:nth-child(4n + 3) {
+  background-color: rgb(121, 133, 156);
 }
