@@ -29,7 +29,6 @@ const resize_mat = () => {
     }
   }
 };
-resize_mat();
 
 /* Helper function to give a div dom with classes */
 const get_div = (class_str_list, height, width) => {
@@ -38,30 +37,6 @@ const get_div = (class_str_list, height, width) => {
   if (height != null) div.style.height = `${height}px`;
   if (width != null) div.style.width = `${width}px`;
   return div;
-};
-
-const screen = {
-  get_screen_height: () => {
-    return (
-      cell.height *
-      Math.max(blocked_rows + (free_rows() != 0), Math.min(N, rows))
-    );
-  },
-  get_screen_width: () => {
-    return (
-      cell.width *
-      Math.max(blocked_cols + (free_cols() != 0), Math.min(M, cols))
-    );
-  },
-  /* Get the main screen dom */
-  get_screen_dom: function () {
-    let screen = get_div(
-      ["screen-area"],
-      this.get_screen_height(),
-      this.get_screen_width()
-    );
-    return screen;
-  },
 };
 
 const cell = {
@@ -78,10 +53,41 @@ const cell = {
         parent_dom_obj.append(this.get_cell(r, c));
   },
 };
+const screen = {
+  get_screen_height: () => {
+    return (
+      cell.height *
+      Math.max(blocked_rows + (free_rows() != 0 ? 1 : 0), Math.min(N, rows))
+    );
+  },
+  get_screen_width: () => {
+    return (
+      cell.width *
+      Math.max(blocked_cols + (free_cols() != 0 ? 1 : 0), Math.min(M, cols))
+    );
+  },
+  /* Get the main screen dom */
+  get_screen_dom: function () {
+    let screen = get_div(
+      ["screen-area"],
+      this.get_screen_height(),
+      this.get_screen_width()
+    );
+    return screen;
+  },
+};
 
 const sheet_main_div = document.querySelector(".sheet-main-div");
 
 const redraw = () => {
+  debug(rows, cols, blocked_rows, blocked_cols, N, M);
+  debug(
+    screen.get_screen_height(),
+    screen.get_screen_width(),
+    free_rows(),
+    free_cols()
+  );
+  resize_mat();
   /* empty out main sheet */
   sheet_main_div.innerHTML = "";
   let scr_dom = screen.get_screen_dom();
