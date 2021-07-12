@@ -5,7 +5,7 @@ const debug = (...args) => {
 /* some variables to handle the state */
 let rows = 20,
   cols = 35,
-  blocked_rows = 14,
+  blocked_rows = 4,
   blocked_cols = 3,
   N = 10,
   M = 10;
@@ -17,7 +17,6 @@ let free_rows = () => {
     return cols - blocked_cols;
   };
 
-debug(rows, cols, blocked_rows, blocked_cols, free_rows(), free_cols());
 /* Matrix to store the labels for the cells */
 let label_matrix;
 
@@ -79,7 +78,6 @@ const cell = {
         parent_dom_obj.append(this.get_cell(r, c));
   },
 };
-debug(screen.get_screen_height(), screen.get_screen_width());
 
 const sheet_main_div = document.querySelector(".sheet-main-div");
 

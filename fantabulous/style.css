@@ -15,12 +15,9 @@
   outline: 1px dashed black;
 }
 
-.sheet-main-div {
-  margin: 0 auto;
-}
-
 .screen-area {
   /* Height and width are set through js */
+  margin: 0 auto;
   background-color: rgb(181, 198, 216);
 }
 
