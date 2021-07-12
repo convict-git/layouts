@@ -21,7 +21,7 @@ let exec = () => {
 exec();
 
 rows_btn.addEventListener("input", () => {
-  rows = rows_btn.value.trim() || rows_btn.defaultValue;
+  rows = parseInt(rows_btn.value.trim() || rows_btn.defaultValue);
   if (rows < 0) {
     rows_btn.value = 0;
     rows = 0;
@@ -34,7 +34,7 @@ rows_btn.addEventListener("input", () => {
 });
 
 cols_btn.addEventListener("input", () => {
-  cols = cols_btn.value.trim() || cols_btn.defaultValue;
+  cols = parseInt(cols_btn.value.trim() || cols_btn.defaultValue);
   if (cols < 0) {
     cols_btn.value = 0;
     cols = 0;
@@ -47,7 +47,9 @@ cols_btn.addEventListener("input", () => {
 });
 
 blocked_rows_btn.addEventListener("input", () => {
-  blocked_rows = blocked_rows_btn.value.trim() || blocked_rows_btn.defaultValue;
+  blocked_rows = parseInt(
+    blocked_rows_btn.value.trim() || blocked_rows_btn.defaultValue
+  );
   if (blocked_rows < 0) {
     blocked_rows_btn.value = 0;
     blocked_rows = 0;
@@ -60,7 +62,9 @@ blocked_rows_btn.addEventListener("input", () => {
 });
 
 blocked_cols_btn.addEventListener("input", () => {
-  blocked_cols = blocked_cols_btn.value.trim() || blocked_cols_btn.defaultValue;
+  blocked_cols = parseInt(
+    blocked_cols_btn.value.trim() || blocked_cols_btn.defaultValue
+  );
   if (blocked_cols < 0) {
     blocked_cols_btn.value = 0;
     blocked_cols = 0;
@@ -73,7 +77,7 @@ blocked_cols_btn.addEventListener("input", () => {
 });
 
 N_btn.addEventListener("input", () => {
-  N = N_btn.value.trim() || N_btn.defaultValue;
+  N = parseInt(N_btn.value.trim() || N_btn.defaultValue);
   if (N < 0) {
     N_btn.value = 0;
     N = 0;
@@ -82,7 +86,7 @@ N_btn.addEventListener("input", () => {
 });
 
 M_btn.addEventListener("input", () => {
-  M = M_btn.value.trim() || M_btn.defaultValue;
+  M = parseInt(M_btn.value.trim() || M_btn.defaultValue);
   if (M < 0) {
     M_btn.value = 0;
     M = 0;

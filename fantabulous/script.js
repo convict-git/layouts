@@ -80,6 +80,8 @@ const screen = {
 const sheet_main_div = document.querySelector(".sheet-main-div");
 
 const redraw = () => {
+  debug(rows, cols, blocked_rows, blocked_cols, N, M);
+  debug(screen.get_screen_height(), screen.get_screen_width());
   resize_mat();
   /* empty out main sheet */
   sheet_main_div.innerHTML = "";
