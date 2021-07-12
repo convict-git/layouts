@@ -4,6 +4,7 @@
   --color2: rgba(231, 165, 165, 0.973);
   --color3: rgba(228, 127, 127, 0.973);
   --color4: rgba(184, 72, 72, 0.973);
+  --color5: rgba(170, 46, 46, 0.973);
 }
 
 * {
@@ -12,7 +13,8 @@
   padding: 0px;
   background-color: var(--color0);
   /* Using outline to understand the structure better */
-  outline: 1px dashed black;
+  /* outline: 1px dashed black; */
+  font-family: monospace;
 }
 
 .screen-area {
@@ -23,15 +25,44 @@
 }
 
 .cell {
-  /* Height and width are set through js */
   border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.header-div {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.header-div > h1 {
+  margin: 0 auto;
+  width: 300px;
+  color: var(--color5);
+  border: 2px solid var(--color5);
+  border-radius: 20px;
+}
+
+.header-div > h1:hover {
+  color: var(--color0);
+  background-color: var(--color5);
+}
+
 .input-div {
   height: 100px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-div > input {
+  width: 50px;
+  text-align: center;
+  height: 30px;
+  border-radius: 20px;
 }
 
 .horizontal-section {
@@ -52,6 +83,7 @@
 
 .blocked > .cell {
   background-color: var(--color3);
+  font-weight: bold;
 }
 .left-scroll-div > .cell,
 .down-scroll-div > .cell {
