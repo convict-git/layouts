@@ -3,7 +3,7 @@ const debug = (...args) => {
 };
 
 /* some variables to handle the state */
-let rows = 20,
+let rows = 25,
   cols = 35,
   blocked_rows = 4,
   blocked_cols = 3,
