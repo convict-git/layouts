@@ -5,8 +5,10 @@ const debug = (...args) => {
 /* some variables to handle the state */
 let rows = 20,
   cols = 35,
-  blocked_rows = 5,
-  blocked_cols = 3;
+  blocked_rows = 14,
+  blocked_cols = 3,
+  N = 10,
+  M = 10;
 
 let free_rows = () => {
     return rows - blocked_rows;
@@ -43,13 +45,13 @@ const screen = {
   get_screen_height: () => {
     return (
       cell.height *
-      Math.max(blocked_rows + Math.min(0, free_rows() - 1), Math.min(10, rows))
+      Math.max(blocked_rows + (free_rows() != 0), Math.min(N, rows))
     );
   },
   get_screen_width: () => {
     return (
       cell.width *
-      Math.max(blocked_cols + Math.min(0, free_cols() - 1), Math.min(15, cols))
+      Math.max(blocked_cols + (free_cols() != 0), Math.min(M, cols))
     );
   },
   /* Get the main screen dom */
