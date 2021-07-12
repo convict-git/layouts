@@ -12,7 +12,11 @@
   padding: 0px;
   background-color: var(--color0);
   /* Using outline to understand the structure better */
-  outline: 1px solid black;
+  outline: 1px dashed black;
+}
+
+.sheet-main-div {
+  margin: 0 auto;
 }
 
 .screen-area {
@@ -23,4 +27,38 @@
 .cell {
   /* Height and width are set through js */
   border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-div {
+  height: 100px;
+}
+
+.horizontal-section {
+  overflow: scroll;
+  display: flex;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 75px);
+}
+
+.left-scrollable-container,
+.down-scrollable-container,
+.fully-scrollable-container {
+  overflow: scroll;
+}
+
+.blocked > .cell {
+  background-color: var(--color3);
+}
+.left-scroll-div > .cell,
+.down-scroll-div > .cell {
+  background-color: var(--color2);
+}
+.fully-scroll-div > .cell {
+  background-color: var(--color1);
 }
