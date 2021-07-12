@@ -44,6 +44,15 @@
   border: 2px solid var(--color5);
   border-radius: 20px;
 }
+.header-div > h2 {
+  margin: 0 auto;
+  margin-top: 5px;
+  font-size: 0.8em;
+  width: 350px;
+  padding: 10px;
+  background-color: var(--color5);
+  color: aliceblue;
+}
 
 .header-div > h1:hover {
   color: var(--color0);
@@ -63,6 +72,8 @@
   text-align: center;
   height: 30px;
   border-radius: 20px;
+  background-color: var(--color1);
+  font-weight: bold;
 }
 
 .horizontal-section {
