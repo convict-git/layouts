@@ -18,6 +18,7 @@
 .screen-area {
   /* Height and width are set through js */
   margin: 0 auto;
+  min-width: 10px;
   background-color: rgb(181, 198, 216);
 }
 

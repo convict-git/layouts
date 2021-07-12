@@ -80,13 +80,6 @@ const screen = {
 const sheet_main_div = document.querySelector(".sheet-main-div");
 
 const redraw = () => {
-  debug(rows, cols, blocked_rows, blocked_cols, N, M);
-  debug(
-    screen.get_screen_height(),
-    screen.get_screen_width(),
-    free_rows(),
-    free_cols()
-  );
   resize_mat();
   /* empty out main sheet */
   sheet_main_div.innerHTML = "";
@@ -198,5 +191,3 @@ const redraw = () => {
   }
   sheet_main_div.append(scr_dom);
 };
-
-redraw();
