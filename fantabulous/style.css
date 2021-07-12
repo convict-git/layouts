@@ -1,0 +1,26 @@
+:root {
+  --color0: rgba(240, 224, 224, 0.973);
+  --color1: rgba(236, 200, 200, 0.973);
+  --color2: rgba(231, 165, 165, 0.973);
+  --color3: rgba(228, 127, 127, 0.973);
+  --color4: rgba(184, 72, 72, 0.973);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  background-color: var(--color0);
+  /* Using outline to understand the structure better */
+  outline: 1px solid black;
+}
+
+.screen-area {
+  /* Height and width are set through js */
+  background-color: rgb(181, 198, 216);
+}
+
+.cell {
+  /* Height and width are set through js */
+  border: 1px solid black;
+}
