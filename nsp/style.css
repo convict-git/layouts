@@ -125,7 +125,7 @@ div.top-bar * {
 .right-slide-but:active,
 .right-slide-but:active * {
   background-color: var(--medium-color);
-  transform: scale(1.01);
+  /* transform: scale(1.01); */
 }
 
 .left-slide-but:hover,
