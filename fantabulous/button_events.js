@@ -21,12 +21,18 @@ const exec = () => {
 };
 exec();
 
-rows_btn.addEventListener("input", () => {
-  rows = parseInt(rows_btn.value.trim() || rows_btn.defaultValue);
-  if (rows < 0) {
-    rows_btn.value = 0;
-    rows = 0;
+/* Reads inp from the button, corrects invalid input */
+const read_n_check = (inp_btn) => {
+  let x = parseInt(inp_btn.value.trim() || inp_btn.defaultValue);
+  if (x < 0) {
+    inp_btn.value = 0;
+    x = 0;
   }
+  return x;
+};
+
+rows_btn.addEventListener("input", () => {
+  rows = read_n_check(rows_btn);
   if (rows < blocked_rows) {
     blocked_rows_btn.value = rows;
     blocked_rows = rows;
@@ -35,11 +41,7 @@ rows_btn.addEventListener("input", () => {
 });
 
 cols_btn.addEventListener("input", () => {
-  cols = parseInt(cols_btn.value.trim() || cols_btn.defaultValue);
-  if (cols < 0) {
-    cols_btn.value = 0;
-    cols = 0;
-  }
+  cols = read_n_check(cols_btn);
   if (cols < blocked_cols) {
     blocked_cols_btn.value = cols;
     blocked_cols = cols;
@@ -48,13 +50,7 @@ cols_btn.addEventListener("input", () => {
 });
 
 blocked_rows_btn.addEventListener("input", () => {
-  blocked_rows = parseInt(
-    blocked_rows_btn.value.trim() || blocked_rows_btn.defaultValue
-  );
-  if (blocked_rows < 0) {
-    blocked_rows_btn.value = 0;
-    blocked_rows = 0;
-  }
+  blocked_rows = read_n_check(blocked_rows_btn);
   if (blocked_rows > rows) {
     blocked_rows_btn.value = rows;
     blocked_rows = rows;
@@ -63,13 +59,7 @@ blocked_rows_btn.addEventListener("input", () => {
 });
 
 blocked_cols_btn.addEventListener("input", () => {
-  blocked_cols = parseInt(
-    blocked_cols_btn.value.trim() || blocked_cols_btn.defaultValue
-  );
-  if (blocked_cols < 0) {
-    blocked_cols_btn.value = 0;
-    blocked_cols = 0;
-  }
+  blocked_cols = read_n_check(blocked_cols_btn);
   if (blocked_cols > cols) {
     blocked_cols_btn.value = cols;
     blocked_cols = cols;
@@ -78,19 +68,11 @@ blocked_cols_btn.addEventListener("input", () => {
 });
 
 n_btn.addEventListener("input", () => {
-  N = parseInt(n_btn.value.trim() || n_btn.defaultValue);
-  if (N < 0) {
-    n_btn.value = 0;
-    N = 0;
-  }
+  N = read_n_check(n_btn);
   exec();
 });
 
 m_btn.addEventListener("input", () => {
-  M = parseInt(m_btn.value.trim() || m_btn.defaultValue);
-  if (M < 0) {
-    m_btn.value = 0;
-    M = 0;
-  }
+  M = read_n_check(m_btn);
   exec();
 });
