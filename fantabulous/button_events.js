@@ -24,7 +24,8 @@ exec();
 /* Reads inp from the button, corrects invalid input */
 const read_n_check = (inp_btn) => {
   let x = parseInt(inp_btn.value.trim() || inp_btn.defaultValue);
-  if (x < 0) {
+  debug(x);
+  if (x < 0 || isNaN(x)) {
     inp_btn.value = 0;
     x = 0;
   }
