@@ -4,17 +4,18 @@ let rows_btn = document.querySelector("#inp-rows"),
   cols_btn = document.querySelector("#inp-cols"),
   blocked_rows_btn = document.querySelector("#inp-blocked-rows"),
   blocked_cols_btn = document.querySelector("#inp-blocked-cols"),
-  N_btn = document.querySelector("#inp-N"),
-  M_btn = document.querySelector("#inp-M");
+  n_btn = document.querySelector("#inp-N"),
+  m_btn = document.querySelector("#inp-M");
 
 (rows_btn.defaultValue = 25),
   (cols_btn.defaultValue = 35),
   (blocked_rows_btn.defaultValue = 4),
   (blocked_cols_btn.defaultValue = 3),
-  (N_btn.defaultValue = 10),
-  (M_btn.defaultValue = 10);
+  (n_btn.defaultValue = 10),
+  (m_btn.defaultValue = 10);
 
-let exec = () => {
+/* This function is called at each event of value changes */
+const exec = () => {
   redraw();
   assign_scroll_events();
 };
@@ -76,19 +77,19 @@ blocked_cols_btn.addEventListener("input", () => {
   exec();
 });
 
-N_btn.addEventListener("input", () => {
-  N = parseInt(N_btn.value.trim() || N_btn.defaultValue);
+n_btn.addEventListener("input", () => {
+  N = parseInt(n_btn.value.trim() || n_btn.defaultValue);
   if (N < 0) {
-    N_btn.value = 0;
+    n_btn.value = 0;
     N = 0;
   }
   exec();
 });
 
-M_btn.addEventListener("input", () => {
-  M = parseInt(M_btn.value.trim() || M_btn.defaultValue);
+m_btn.addEventListener("input", () => {
+  M = parseInt(m_btn.value.trim() || m_btn.defaultValue);
   if (M < 0) {
-    M_btn.value = 0;
+    m_btn.value = 0;
     M = 0;
   }
   exec();
