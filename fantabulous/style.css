@@ -77,13 +77,22 @@
 }
 
 .horizontal-section {
-  overflow: scroll;
+  overflow: hidden;
   display: flex;
 }
 
 .section {
   display: grid;
   grid-template-columns: repeat(auto-fill, 75px);
+  overflow: hidden;
+}
+
+.left-scrollable-container::-webkit-scrollbar,
+.down-scrollable-container::-webkit-scrollbar {
+  display: none;
+}
+
+.fully-scrollable-container {
 }
 
 .left-scrollable-container,
